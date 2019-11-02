@@ -22,6 +22,8 @@ while(id < 18419): #14280 #156709 #18418
         del initial_data[0]["clues_count"]   
         del initial_data[0]["clues"]
         final_data.append(initial_data[0])
+    if (id % 50 == 0):
+         print(id)
     id += 1
 
 # Create a file for our new list of dictionaries
