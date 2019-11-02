@@ -13,7 +13,7 @@ bundle install.
 '''
 
 # Loop through pages of api and add to list of dicts
-while(id < 18419): #14280 #156709 #18418
+while(id < 18419):
     initial_data = []
     response = requests.get(url + str(id))
     initial_data.append(json.loads(response.text))
@@ -24,8 +24,6 @@ while(id < 18419): #14280 #156709 #18418
         del initial_data[0]["clues_count"]   
         del initial_data[0]["clues"]
         final_data.append(initial_data[0])
-    if (id % 50 == 0):
-         print(id)
     id += 1
 
 # Create a file for our new list of dictionaries
