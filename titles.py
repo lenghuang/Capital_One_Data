@@ -5,15 +5,14 @@ url = ("http://jservice.io/api/category?id=")
 id = 1
 final_data = []
 
-'''
-Use a changing url and offset to access all 
-of the api's data. Did this to compensate for
-technical issues with my computer and 
-bundle install.
-'''
+# Initially create a file of all the categories in the API
+# compiled. Then delete entries that took up too much data.
+# This can be used to then search for things in a quicker way.
+# This allow checks for faults in the API where there are
+# null entries. 
 
 # Loop through pages of api and add to list of dicts
-while(id < 18419): #14280 #156709 #18418
+while(id < 18419):
     initial_data = []
     response = requests.get(url + str(id))
     initial_data.append(json.loads(response.text))
@@ -25,5 +24,5 @@ while(id < 18419): #14280 #156709 #18418
     id += 1
 
 # Create a file for our new list of dictionaries
-with open('titles_new.json', 'w') as f:
+with open('comp.json', 'w') as f:
         json.dump(final_data, f)
